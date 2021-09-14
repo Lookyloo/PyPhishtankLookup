@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "pyphishtanklookup"
+version = "0.1.0"
+description = "Python CLI and module for PhishtankLookup"
+authors = ["Raphaël Vinot <raphael.vinot@circl.lu>"]
+license = "BSD-3-Clause"
+repository = "https://github.com/lookyloo/PyPhishtankLookup"
+
+readme = "README.md"
+
+classifiers = [
+    'License :: OSI Approved :: BSD License',
+    'Development Status :: 5 - Production/Stable',
+    'Environment :: Console',
+    'Operating System :: POSIX :: Linux',
+    'Intended Audience :: Science/Research',
+    'Intended Audience :: Telecommunications Industry',
+    'Intended Audience :: Information Technology',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Topic :: Security',
+    'Topic :: Internet',
+]
+
+include = ['README.md']
+
+[tool.poetry.scripts]
+phishtank-lookup = 'pyphishtanklookup:main'
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.26.0"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.910"
+types-requests = "^2.25.0"
+ipython = "^7.27.0"
+
+
+[build-system]
+requires = ["poetry_core>=1.0", "setuptools"]
+build-backend = "poetry.core.masonry.api"
