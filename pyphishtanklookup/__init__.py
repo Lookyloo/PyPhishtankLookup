@@ -9,6 +9,7 @@ def main():
     parser = argparse.ArgumentParser(description='Search a URL in Phishtank Lookup.')
     parser.add_argument('--url', type=str, help='URL of the instance (defaults to https://phishtankapi.circl.lu/).')
     group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('--info', action='store_true', help='Info avout the instance.')
     group.add_argument('--url_query', metavar='url', help='URL to search.')
     group.add_argument('--urls_by_cc', metavar='cc', help='Country Code to search.')
     group.add_argument('--urls_by_ip', metavar='ip', help='IP address to search.')
@@ -23,7 +24,9 @@ def main():
     if not phishtank_lookup.is_up:
         print(f'Unable to reach {phishtank_lookup.root_url}. Is the server up?')
         sys.exit(1)
-    if args.url_query:
+    if args.info:
+        response = phishtank_lookup.info()
+    elif args.url_query:
         response = phishtank_lookup.get_url_entry(args.url_query)
     elif args.urls_by_cc:
         response = phishtank_lookup.get_urls_by_cc(args.urls_by_cc)
