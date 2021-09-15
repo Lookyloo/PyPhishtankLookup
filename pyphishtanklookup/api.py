@@ -3,7 +3,7 @@
 
 from datetime import datetime
 import ipaddress
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Union
 from urllib.parse import urljoin, urlparse
 
 import requests
@@ -56,27 +56,37 @@ class PhishtankLookup():
         return r.json()
 
     def get_urls_by_ip(self, ip: str) -> List[str]:
-        '''Returns the URLs by IP'''
+        '''Returns the URLs by IP
+
+        :param ip: The IP address
+        '''
         params = {'ip': ip}
         r = self.session.get(urljoin(self.root_url, 'urls_by_ip'), params=params)
         return r.json()
 
-    def get_urls_by_asn(self, asn: str) -> List[str]:
-        '''Returns the URLs by ASN'''
+    def get_urls_by_asn(self, asn: Union[str, int]) -> List[str]:
+        '''Returns the URLs by ASN
+
+        :param asn: The Autonomus System Number
+        '''
         params = {'asn': asn}
         r = self.session.get(urljoin(self.root_url, 'urls_by_asn'), params=params)
         return r.json()
 
     def get_urls_by_cc(self, cc: str) -> List[str]:
-        '''Returns the URLs by Country Code'''
+        '''Returns the URLs by Country Code
+
+        :param cc: Country code (ex: LU)
+        '''
         params = {'cc': cc}
         r = self.session.get(urljoin(self.root_url, 'urls_by_cc'), params=params)
         return r.json()
 
-    def get_url_entry(self, url: str, pythonify=False) -> Dict[str, Any]:
+    def get_url_entry(self, url: str, pythonify: bool=False) -> Dict[str, Any]:
         '''Returns all URL entry
 
         :param url: URL to search.
+        :param pythonify: Convert the response to Python objects/integers/bools
         '''
         params = {'url': url}
         r = self.session.get(urljoin(self.root_url, 'url'), params=params)
