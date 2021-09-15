@@ -11,7 +11,7 @@ import requests
 
 class PhishtankLookup():
 
-    def __init__(self, root_url: str='http://0.0.0.0:5300'):
+    def __init__(self, root_url: str='https://phishtankapi.circl.lu/'):
         '''Query a specific Phishtank Lookup instance.
 
         :param root_url: URL of the instance to query.
