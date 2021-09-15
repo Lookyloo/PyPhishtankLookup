@@ -7,8 +7,8 @@ API reference
 .. automodule:: pyphishtanklookup
    :members:
 
-Lookyloo
---------
+PhishtankLookup
+---------------
 
 .. autoclass:: PhishtankLookup
    :members:
