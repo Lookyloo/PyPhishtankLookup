@@ -30,6 +30,11 @@ class PhishtankLookup():
         r = self.session.head(self.root_url)
         return r.status_code == 200
 
+    def redis_up(self) -> Dict:
+        '''Check if redis is up and running'''
+        r = self.session.get(urljoin(self.root_url, 'redis_up'))
+        return r.json()
+
     def info(self) -> Dict:
         '''Get information about the instance'''
         r = self.session.get(urljoin(self.root_url, 'info'))

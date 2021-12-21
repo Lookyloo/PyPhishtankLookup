@@ -31,12 +31,13 @@ phishtank-lookup = 'pyphishtanklookup:main'
 [tool.poetry.dependencies]
 python = "^3.8"
 requests = "^2.26.0"
-Sphinx = { version = "^4.2", optional = true }
+Sphinx = { version = "^4.3", optional = true }
 
 [tool.poetry.dev-dependencies]
-mypy = "^0.910"
+mypy = "^0.920"
 types-requests = "^2.25.0"
 ipython = "^7.27.0"
+pytest-cov = "^3.0.0"
 
 [tool.poetry.extras]
 docs = ["Sphinx"]
