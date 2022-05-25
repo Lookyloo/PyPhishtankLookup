@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from setuptools import setup  # type: ignore
+from setuptools import setup
 
 
 setup(
     name='pyphishtanklookup',
-    version='0.2.0-dev',
+    version='1.2-dev',
     author='Raphaël Vinot',
     author_email='raphael.vinot@circl.lu',
     maintainer='Raphaël Vinot',
