@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+
+from __future__ import annotations
 
 from datetime import datetime
 import ipaddress
-from typing import Dict, Any, List, Union
+from typing import Any
 from urllib.parse import urljoin, urlparse
 
 import requests
@@ -30,37 +31,37 @@ class PhishtankLookup():
         r = self.session.head(self.root_url)
         return r.status_code == 200
 
-    def redis_up(self) -> Dict:
+    def redis_up(self) -> dict[str, Any]:
         '''Check if redis is up and running'''
         r = self.session.get(urljoin(self.root_url, 'redis_up'))
         return r.json()
 
-    def info(self) -> Dict:
+    def info(self) -> dict[str, Any]:
         '''Get information about the instance'''
         r = self.session.get(urljoin(self.root_url, 'info'))
         return r.json()
 
-    def get_urls(self) -> List[str]:
+    def get_urls(self) -> list[str]:
         '''Returns the URLs'''
         r = self.session.get(urljoin(self.root_url, 'urls'))
         return r.json()
 
-    def get_ips(self) -> List[str]:
+    def get_ips(self) -> list[str]:
         '''Returns the IPs'''
         r = self.session.get(urljoin(self.root_url, 'ips'))
         return r.json()
 
-    def get_asns(self) -> List[str]:
+    def get_asns(self) -> list[str]:
         '''Returns the ASNs'''
         r = self.session.get(urljoin(self.root_url, 'asns'))
         return r.json()
 
-    def get_ccs(self) -> List[str]:
+    def get_ccs(self) -> list[str]:
         '''Returns the Country Codes'''
         r = self.session.get(urljoin(self.root_url, 'ccs'))
         return r.json()
 
-    def get_urls_by_ip(self, ip: str) -> List[str]:
+    def get_urls_by_ip(self, ip: str) -> list[str]:
         '''Returns the URLs by IP
 
         :param ip: The IP address
@@ -69,7 +70,7 @@ class PhishtankLookup():
         r = self.session.get(urljoin(self.root_url, 'urls_by_ip'), params=params)
         return r.json()
 
-    def get_urls_by_asn(self, asn: Union[str, int]) -> List[str]:
+    def get_urls_by_asn(self, asn: str | int) -> list[str]:
         '''Returns the URLs by ASN
 
         :param asn: The Autonomus System Number
@@ -78,7 +79,7 @@ class PhishtankLookup():
         r = self.session.get(urljoin(self.root_url, 'urls_by_asn'), params=params)
         return r.json()
 
-    def get_urls_by_cc(self, cc: str) -> List[str]:
+    def get_urls_by_cc(self, cc: str) -> list[str]:
         '''Returns the URLs by Country Code
 
         :param cc: Country code (ex: LU)
@@ -87,7 +88,7 @@ class PhishtankLookup():
         r = self.session.get(urljoin(self.root_url, 'urls_by_cc'), params=params)
         return r.json()
 
-    def get_url_entry(self, url: str, pythonify: bool=False) -> Dict[str, Any]:
+    def get_url_entry(self, url: str, pythonify: bool=False) -> dict[str, Any]:
         '''Returns all URL entry
 
         :param url: URL to search.

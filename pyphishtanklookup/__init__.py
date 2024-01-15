@@ -1,11 +1,17 @@
+from __future__ import annotations
+
 import argparse
 import json
 import sys
 
+from typing import Any
+
 from .api import PhishtankLookup
 
+__all__ = ['PhishtankLookup']
 
-def main():
+
+def main() -> None:
     parser = argparse.ArgumentParser(description='Search a URL in Phishtank Lookup.')
     parser.add_argument('--url', type=str, help='URL of the instance (defaults to https://phishtankapi.circl.lu/).')
     group = parser.add_mutually_exclusive_group(required=True)
@@ -24,6 +30,7 @@ def main():
     if not phishtank_lookup.is_up:
         print(f'Unable to reach {phishtank_lookup.root_url}. Is the server up?')
         sys.exit(1)
+    response: list[str] | dict[str, Any]
     if args.info:
         response = phishtank_lookup.info()
     elif args.url_query:
