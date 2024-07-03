@@ -36,6 +36,7 @@ Sphinx = [
     {version = "<7.2", python = "<3.9", optional = true},
     {version = "^7.2", python = ">=3.9", optional = true}
 ]
+pylookyloo = {version = "^1.25.0", optional = true}
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.10.1"
@@ -49,6 +50,7 @@ pytest-cov = "^5.0.0"
 
 [tool.poetry.extras]
 docs = ["Sphinx"]
+lookyloo_example = ["pylookyloo"]
 
 [build-system]
 requires = ["poetry_core>=1.0", "setuptools"]

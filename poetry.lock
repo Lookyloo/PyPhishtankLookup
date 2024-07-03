@@ -791,6 +791,23 @@ files = [
 windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
+name = "pylookyloo"
+version = "1.25.0"
+description = "Python CLI and module for Lookyloo"
+optional = true
+python-versions = "<4.0,>=3.8"
+files = [
+    {file = "pylookyloo-1.25.0-py3-none-any.whl", hash = "sha256:946677205ffaac43a238b5152476b7173b8a85fd3f64622c2174cbcf678fdaa7"},
+    {file = "pylookyloo-1.25.0.tar.gz", hash = "sha256:e8e47c79919b3451e00a3d73faa980738e5a531fccbcb5bb8e79f504200d5650"},
+]
+
+[package.dependencies]
+requests = ">=2.32.3,<3.0.0"
+
+[package.extras]
+docs = ["Sphinx (<7.2)", "Sphinx (>=7.2,<8.0)"]
+
+[[package]]
 name = "pytest"
 version = "8.2.2"
 description = "pytest: simple powerful testing with Python"
@@ -1239,8 +1256,9 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 
 [extras]
 docs = ["Sphinx", "Sphinx"]
+lookyloo-example = ["pylookyloo"]
 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "2a3f9d504c3f5e2af3220291596f9e741043e3ed45dcd4a6d3cfba2fdc8a125b"
+content-hash = "62ae91c76f953a681815105538d2d45341b7c832754162f4f76681ea5fefc631"
