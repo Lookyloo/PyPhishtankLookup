@@ -37,7 +37,7 @@ Sphinx = [
     {version = "^7.2", python = ">=3.9,<3.10", optional = true},
     {version = "^8", python = ">=3.10", optional = true}
 ]
-pylookyloo = {version = "^1.25.0", optional = true}
+pylookyloo = {version = "^1.26.1", optional = true}
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.11.2"
