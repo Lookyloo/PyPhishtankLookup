@@ -33,16 +33,14 @@ phishtank-lookup = 'pyphishtanklookup:main'
 python = "^3.9"
 requests = "^2.32.3"
 Sphinx = [
-    {version = "^7.2", python = "<3.10", optional = true},
     {version = "^8", python = ">=3.10", optional = true}
 ]
 pylookyloo = {version = "^1.26.1", optional = true}
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^1.13.0"
+mypy = "^1.14.1"
 types-requests = "^2.32.0.20241016"
 ipython = [
-    {version = "^8.18.0", python = "<3.10"},
     {version = "^8.19.0", python = ">=3.10"}
 ]
 pytest-cov = "^6.0.0"
