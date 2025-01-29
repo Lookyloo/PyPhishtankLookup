@@ -1,54 +1,55 @@
-[tool.poetry]
+[project]
 name = "pyphishtanklookup"
-version = "1.4.1"
+version = "1.4.2"
 description = "Python CLI and module for PhishtankLookup"
-authors = ["Raphaël Vinot <raphael.vinot@circl.lu>"]
+authors = [
+    {name="Raphaël Vinot", email="raphael.vinot@circl.lu"}
+]
 license = "BSD-3-Clause"
-repository = "https://github.com/lookyloo/PyPhishtankLookup"
-
 readme = "README.md"
+requires-python=">=3.9"
 
+dynamic = [ "classifiers" ]
+
+dependencies = [
+    "requests (>=2.32.3)"
+]
+
+[project.urls]
+repository = "https://github.com/lookyloo/PyPhishtankLookup"
+documentation = "https://pyphishtanklookup.readthedocs.io/"
+issues = "https://github.com/lookyloo/PyPhishtankLookup/issues"
+
+[tools.poetry]
 classifiers = [
-    'License :: OSI Approved :: BSD License',
     'Development Status :: 5 - Production/Stable',
     'Environment :: Console',
     'Operating System :: POSIX :: Linux',
     'Intended Audience :: Science/Research',
     'Intended Audience :: Telecommunications Industry',
     'Intended Audience :: Information Technology',
-    'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.9',
-    'Programming Language :: Python :: 3.10',
-    'Programming Language :: Python :: 3.11',
-    'Programming Language :: Python :: 3.12',
-    'Programming Language :: Python :: 3.13',
     'Topic :: Security',
     'Topic :: Internet',
 ]
 
-[tool.poetry.scripts]
+[project.scripts]
 phishtank-lookup = 'pyphishtanklookup:main'
 
-[tool.poetry.dependencies]
-python = "^3.9"
-requests = "^2.32.3"
-Sphinx = [
-    {version = "^8", python = ">=3.10", optional = true}
+[project.optional-dependencies]
+
+docs = [
+    "Sphinx (>=8.1.3) ; python_version >= \"3.10\"",
 ]
-pylookyloo = {version = "^1.26.1", optional = true}
+
+lookyloo_example = [
+    "pylookyloo (>=1.27.0)"
+]
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.14.1"
 types-requests = "^2.32.0.20241016"
-ipython = [
-    {version = "^8.19.0", python = ">=3.10"}
-]
 pytest-cov = "^6.0.0"
 
-[tool.poetry.extras]
-docs = ["Sphinx"]
-lookyloo_example = ["pylookyloo"]
-
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0"]
 build-backend = "poetry.core.masonry.api"
