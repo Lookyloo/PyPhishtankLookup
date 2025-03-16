@@ -38,16 +38,16 @@ phishtank-lookup = 'pyphishtanklookup:main'
 [project.optional-dependencies]
 
 docs = [
-    "Sphinx (>=8.1.3) ; python_version >= \"3.10\"",
+    "Sphinx (>=8.2.3) ; python_version >= \"3.11\"",
 ]
 
 lookyloo_example = [
-    "pylookyloo (>=1.27.0)"
+    "pylookyloo (>=1.28.0)"
 ]
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^1.14.1"
-types-requests = "^2.32.0.20241016"
+mypy = "^1.15.0"
+types-requests = "^2.32.0.20250306"
 pytest-cov = "^6.0.0"
 
 [build-system]
