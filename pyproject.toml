@@ -47,8 +47,8 @@ lookyloo_example = [
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.15.0"
-types-requests = "^2.32.0.20250306"
-pytest-cov = "^6.0.0"
+types-requests = "^2.32.0.20250328"
+pytest-cov = "^6.1.0"
 
 [build-system]
 requires = ["poetry-core>=2.0"]
