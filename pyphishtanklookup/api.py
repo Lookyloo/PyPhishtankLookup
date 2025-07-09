@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
-from datetime import datetime
 import ipaddress
+
+from importlib.metadata import version
+from datetime import datetime
 from typing import Any
 from urllib.parse import urljoin, urlparse
 
@@ -15,12 +17,15 @@ from requests.adapters import HTTPAdapter
 
 class PhishtankLookup():
 
-    def __init__(self, root_url: str='https://phishtankapi.circl.lu/'):
+    def __init__(self, root_url: str | None=None, useragent: str | None=None,
+                 *, proxies: dict[str, str] | None=None) -> None:
         '''Query a specific Phishtank Lookup instance.
 
         :param root_url: URL of the instance to query.
+        :param useragent: User-Agent to use for the requests.
+        :param proxies: Proxies to use for the requests.
         '''
-        self.root_url = root_url
+        self.root_url = root_url if root_url else 'https://phishtankapi.circl.lu/'
 
         if not urlparse(self.root_url).scheme:
             self.root_url = 'http://' + self.root_url
@@ -29,6 +34,9 @@ class PhishtankLookup():
         self.session = requests.session()
         retries = Retry(total=5, backoff_factor=0.1, status_forcelist=[500, 502, 503, 504])
         self.session.mount('http://', HTTPAdapter(max_retries=retries))
+        self.session.headers['user-agent'] = useragent if useragent else f'PyPhishtankLookup / {version("phishtanklookup")}'
+        if proxies:
+            self.session.proxies.update(proxies)
 
     @property
     def is_up(self) -> bool:
