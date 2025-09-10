@@ -1,6 +1,6 @@
 [project]
 name = "pyphishtanklookup"
-version = "1.4.2"
+version = "1.4.3"
 description = "Python CLI and module for PhishtankLookup"
 authors = [
     {name="Raphaël Vinot", email="raphael.vinot@circl.lu"}
