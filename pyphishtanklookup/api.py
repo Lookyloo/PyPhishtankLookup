@@ -34,7 +34,7 @@ class PhishtankLookup():
         self.session = requests.session()
         retries = Retry(total=5, backoff_factor=0.1, status_forcelist=[500, 502, 503, 504])
         self.session.mount('http://', HTTPAdapter(max_retries=retries))
-        self.session.headers['user-agent'] = useragent if useragent else f'PyPhishtankLookup / {version("phishtanklookup")}'
+        self.session.headers['user-agent'] = useragent if useragent else f'PyPhishtankLookup / {version("pyphishtanklookup")}'
         if proxies:
             self.session.proxies.update(proxies)
 

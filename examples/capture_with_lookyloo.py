@@ -46,10 +46,11 @@ def main() -> None:
         if not remote_lacus['is_up']:
             # The remote lacus is down, ignoring
             continue
-        for name, infos in remote_lacus['proxies'].items():
-            if 'meta' in infos and 'country_code' in infos['meta']:
-                cc_mapping[infos['meta']['country_code']] = name
-                pass
+        if 'proxies' in remote_lacus:
+            for name, infos in remote_lacus['proxies'].items():
+                if 'meta' in infos and 'country_code' in infos['meta']:
+                    cc_mapping[infos['meta']['country_code']] = name
+                    pass
 
     if args.urls_by_cc:
         response = phishtank_lookup.get_urls_by_cc(args.urls_by_cc)
