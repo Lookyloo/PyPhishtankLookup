@@ -1,13 +1,13 @@
 [project]
 name = "pyphishtanklookup"
-version = "1.4.3"
+version = "1.5.0"
 description = "Python CLI and module for PhishtankLookup"
 authors = [
     {name="Raphaël Vinot", email="raphael.vinot@circl.lu"}
 ]
 license = "BSD-3-Clause"
 readme = "README.md"
-requires-python=">=3.9"
+requires-python=">=3.9.2"
 
 dynamic = [ "classifiers" ]
 
@@ -42,12 +42,12 @@ docs = [
 ]
 
 lookyloo_example = [
-    "pylookyloo (>=1.32.1)"
+    "pylookyloo (>=1.33.0)"
 ]
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^1.17.1"
-types-requests = "^2.32.4.20250809"
+mypy = "^1.18.2"
+types-requests = "^2.32.4.20250913"
 pytest-cov = "^7.0.0"
 
 [build-system]
