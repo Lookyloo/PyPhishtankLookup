@@ -38,7 +38,7 @@ phishtank-lookup = 'pyphishtanklookup:main'
 [project.optional-dependencies]
 
 docs = [
-    "Sphinx (>=9.0.1) ; python_version >= \"3.11\"",
+    "Sphinx (>=9.0.4) ; python_version >= \"3.11\"",
 ]
 
 lookyloo_example = [
