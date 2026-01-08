@@ -9,6 +9,10 @@ import sys
 from pyphishtanklookup import PhishtankLookup
 from pylookyloo import Lookyloo
 
+default_categories = ['phishing:report-origin="phishtank"']
+username = ''
+password = ''
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description='Get URLs from Phishtank Lookup, capture them with Lookyloo.')
@@ -35,6 +39,9 @@ def main() -> None:
     if not lookyloo.is_up:
         print(f'Unable to reach {lookyloo.root_url}. Is the server up?')
         sys.exit(1)
+
+    if username and password:
+        lookyloo.init_apikey(username=username, password=password)
 
     # get the remote lacuses to pass the right proxies to the captures
     cc_mapping = {}
@@ -64,10 +71,10 @@ def main() -> None:
         for url in response:
             if args.urls_by_cc:
                 print(f'{datetime.now()} Capturing {url} with proxy {cc_mapping.get(args.urls_by_cc)}...')
-                uuid = lookyloo.submit(url=url, proxy=cc_mapping.get(args.urls_by_cc), quiet=True)
+                uuid = lookyloo.submit(url=url, proxy=cc_mapping.get(args.urls_by_cc), categories=default_categories, quiet=True)
             else:
                 print(f'{datetime.now()} Capturing {url}...')
-                uuid = lookyloo.submit(url=url, quiet=True)
+                uuid = lookyloo.submit(url=url, categories=default_categories, quiet=True)
             print(f'{datetime.now()} {url}: {lookyloo.root_url}/tree/{uuid}')
             f.write(f'{uuid}\n')
 
