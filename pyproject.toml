@@ -12,7 +12,7 @@ requires-python=">=3.10,<3.15"
 dynamic = [ "classifiers" ]
 
 dependencies = [
-    "requests (>=2.33.1)",
+    "requests (>=2.34.2)",
     "urllib3 (>=2.6.3,<3.0.0)"
 ]
 
@@ -43,12 +43,12 @@ docs = [
 ]
 
 lookyloo_example = [
-    "pylookyloo (>=1.39.1)"
+    "pylookyloo (>=1.40.0)"
 ]
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^2.0.0"
-types-requests = "^2.33.0.20260508"
+mypy = "^2.3.0"
+types-requests = "^2.33.0.20260712"
 pytest-cov = "^7.1.0"
 
 [build-system]
