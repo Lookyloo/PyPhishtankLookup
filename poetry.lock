@@ -1144,27 +1144,27 @@ windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "pylookyloo"
-version = "1.40.0"
+version = "1.41.1"
 description = "Python CLI and module for Lookyloo"
 optional = true
 python-versions = "<3.15,>=3.10"
 groups = ["main"]
 markers = "extra == \"lookyloo-example\""
 files = [
-    {file = "pylookyloo-1.40.0-py3-none-any.whl", hash = "sha256:262b3ca821c661d33ec63e5b8ecd0cc38fe861ac7979b7d0e9e614d49f6a1376"},
-    {file = "pylookyloo-1.40.0.tar.gz", hash = "sha256:433cdeea9cdb53c4b1c536e31d5c67af4517cdcd7cf2454b46168c60ce77c780"},
+    {file = "pylookyloo-1.41.1-py3-none-any.whl", hash = "sha256:ce24fe996918c9a8fbcaf2ed21d9f2c4e51a127aa239ea4b2879e4d564dd0660"},
+    {file = "pylookyloo-1.41.1.tar.gz", hash = "sha256:76e9c4a710ce6f6805c525e2400e764f1b20f1d5a2433ac3986df1f0392a2aae"},
 ]
 
 [package.dependencies]
 deprecated = {version = ">=1.3.1,<2.0.0", markers = "python_version < \"3.13\""}
-lookyloo-models = ">=0.2.9"
+lookyloo-models = ">=0.3.1"
 pydantic = ">=2.12.5,<3.0.0"
 requests = ">=2.34.2"
 urllib3 = ">=2.6.3,<3.0.0"
 
 [package.extras]
 docs = ["sphinx (>=9.1.0) ; python_version >= \"3.12\""]
-examples = ["pylacus (>=1.24.4)"]
+examples = ["pylacus (>=1.26.0)"]
 
 [[package]]
 name = "pytest"
@@ -1903,4 +1903,4 @@ lookyloo-example = ["pylookyloo"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.15"
-content-hash = "88b2fc92cba8bbc6eb39eff6539035e24684fbe01afcb20216157639ee604667"
+content-hash = "8af87706466dd9b81cb31963893d223cfda314f4ff6f92f99a40e800c66b77f0"
