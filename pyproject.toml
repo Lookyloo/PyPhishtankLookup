@@ -47,8 +47,8 @@ lookyloo_example = [
 ]
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^2.4.0"
-types-requests = "^2.33.0.20261006"
+mypy = "^2.4.1"
+types-requests = "^2.33.0.20261030"
 pytest-cov = "^7.1.0"
 
 [build-system]
